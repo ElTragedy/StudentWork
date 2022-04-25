@@ -28,6 +28,7 @@ del returndata
 print("session id: " + mcsessionid)
 data = {'user':u'aaronsierra2nd@yahoo.com','host':u'192.168.7.222','port':u'25565','session':u'%s' % mcsessionid}
 
+enc_user = data['user'].encode('utf-16BE')
 stringfmt = u'%(user)s:%(hosts)s:%(port)d'
 string = stringfmt % data
 structfmt = '>bh'
@@ -37,11 +38,11 @@ s.send(packetbytes)
 connhash = s.recv(1024)
 print("conneciton hash: " + connhash)
 print ("sending handshake")
-req = urllib.urlopen('http://session.minecraft.net/game/joinserver.jsp?user=ElTragedyyy&sessionId=' + mcsessionid + '&serverId=' + connhash))
+req = urllib.urlopen('http://session.minecraft.net/game/joinserver.jsp?user=ElTragedyyy&sessionId=' + mcsessionid + '&serverId=' + connhash)
 returndata = req.read()
 if (returndata == 'OK'):
     print("connection successful")
-    exit(0)
+    exit(0)  
 else:
     print("connection failed")
     exit(1)
