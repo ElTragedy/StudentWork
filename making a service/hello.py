@@ -7,7 +7,11 @@ import struct
 import socket
 import time
 import urllib
-import urllib2
+try:
+    import urllib.request as urllib2
+except ImportError:
+    import urllib2
+import json
 
 host = "192.168.7.222"
 port = 25565
