@@ -6,8 +6,8 @@ import urllib
 import struct
 
 
-HOST = '192.168.7.222'
-PORT = '25565'
+HOST = "192.168.7.222"
+PORT = "25565"
 BUFFER_SIZE = 1024
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((HOST, PORT))
